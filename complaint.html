@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Society Register Complaint</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-resident">
+  <div class="app-shell">
+    <header class="subpage-top">
+      <div>
+        <p class="eyebrow">Society Resident Desk</p>
+        <h1 class="subpage-title">Register a New Complaint</h1>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-link" href="index.html">Home</a>
+        <a class="ghost-link" href="track-status.html">Track Status</a>
+        <a class="ghost-link" href="admin.html">Admin Login</a>
+        <button class="ghost-link" id="themeToggle" type="button">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="two-column-layout">
+      <section class="glass-panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Complaint Form</p>
+            <h2>Resident Information</h2>
+          </div>
+          <p class="section-copy">Basic resident details aur complaint description fill karke ticket generate kijiye.</p>
+        </div>
+
+        <div class="page-banner warm-banner">
+          <div>
+            <p class="section-kicker">Fast Ticket Creation</p>
+            <h3>Real support-desk style complaint form</h3>
+            <p class="section-copy">Submit karte hi unique ticket generate hoga aur tracking page par instantly searchable rahega.</p>
+          </div>
+          <div class="badge-stack">
+            <span class="soft-badge">Ticket ID Auto</span>
+            <span class="soft-badge">Priority Routing</span>
+            <span class="soft-badge">Shared Dashboard</span>
+          </div>
+        </div>
+
+        <form id="complaintForm" class="complaint-form">
+          <div class="field-grid">
+            <label>
+              Resident Name
+              <input type="text" id="residentName" placeholder="Enter resident name" required />
+            </label>
+            <label>
+              Flat Number
+              <input type="text" id="flatNumber" placeholder="Eg. A-204" required />
+            </label>
+            <label>
+              Mobile Number
+              <input type="tel" id="mobileNumber" placeholder="10 digit number" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" id="emailAddress" placeholder="name@example.com" required />
+            </label>
+            <label>
+              Complaint Category
+              <select id="category" required>
+                <option value="">Select category</option>
+                <option>Maintenance</option>
+                <option>Water Supply</option>
+                <option>Electricity</option>
+                <option>Security</option>
+                <option>Cleanliness</option>
+                <option>Parking</option>
+                <option>Lift</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Priority
+              <select id="priority" required>
+                <option value="">Select priority</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Urgent</option>
+              </select>
+            </label>
+            <label>
+              Complaint Date
+              <input type="date" id="complaintDate" required />
+            </label>
+            <label>
+              Preferred Contact Time
+              <select id="contactTime" required>
+                <option value="">Select time</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+                <option>Anytime</option>
+              </select>
+            </label>
+            <label class="field-span-2">
+              Assigned Department
+              <select id="department" required>
+                <option value="">Assign department</option>
+                <option>Maintenance Team</option>
+                <option>Facility Desk</option>
+                <option>Electrical Team</option>
+                <option>Security Team</option>
+                <option>Housekeeping</option>
+                <option>Management Office</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Complaint Title
+            <input type="text" id="title" placeholder="Short title of issue" required />
+          </label>
+
+          <label>
+            Complaint Description
+            <textarea id="description" rows="5" placeholder="Explain the issue properly..." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Register Complaint</button>
+            <button type="reset" class="secondary-button">Clear Form</button>
+          </div>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="glass-panel side-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="section-kicker">Resident Help</p>
+            <h2>Before You Submit</h2>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="preview-top">
+            <div>
+              <p class="section-kicker">Service Promise</p>
+              <h3>Designed like a real society helpdesk</h3>
+            </div>
+            <span class="live-pill"><span class="live-dot"></span>Always On</span>
+          </div>
+          <div class="service-grid">
+            <article>
+              <strong>10+</strong>
+              <span>resident fields</span>
+            </article>
+            <article>
+              <strong>1 Click</strong>
+              <span>ticket creation</span>
+            </article>
+            <article>
+              <strong>Admin Sync</strong>
+              <span>instant visibility</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="info-stack">
+          <article class="info-card">
+            <span class="feature-tag">Step 1</span>
+            <h3>Correct Flat Number</h3>
+            <p>Flat number clearly fill karein taaki society team direct aap tak pahunch sake.</p>
+          </article>
+
+          <article class="info-card">
+            <span class="feature-tag">Step 2</span>
+            <h3>Select Priority Smartly</h3>
+            <p>Urgent sirf critical issue ke liye use karein jaise paani, bijli, security ya lift emergency.</p>
+          </article>
+
+          <article class="info-card">
+            <span class="feature-tag">Step 3</span>
+            <h3>Track from Admin Desk</h3>
+            <p>Complaint submit hone ke baad track status page par ticket progress and resolution status check kiya ja sakta hai.</p>
+          </article>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="theme.js"></script>
+  <script src="pwa.js"></script>
+  <script src="resident.js"></script>
+</body>
+</html>

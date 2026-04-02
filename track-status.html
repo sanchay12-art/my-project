@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Track Complaint Status</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-resident">
+  <div class="app-shell">
+    <header class="subpage-top">
+      <div>
+        <p class="eyebrow">Society Resident Tracking</p>
+        <h1 class="subpage-title">Track Your Complaint Status</h1>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-link" href="index.html">Home</a>
+        <a class="ghost-link" href="complaint.html">File Complaint</a>
+        <a class="ghost-link" href="admin.html">Admin Login</a>
+        <button class="ghost-link" id="themeToggle" type="button">Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="two-column-layout">
+      <section class="glass-panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Track Complaint</p>
+            <h2>Enter Complaint ID</h2>
+          </div>
+          <p class="section-copy">Residents can check complaint progress by entering the complaint ticket ID received at registration.</p>
+        </div>
+
+        <div class="page-banner warm-banner">
+          <div>
+            <p class="section-kicker">Resident Tracking</p>
+            <h3>Check status without admin access</h3>
+            <p class="section-copy">Just enter the complaint ID and view current status, assigned department, priority and complaint summary.</p>
+          </div>
+          <div class="badge-stack">
+            <span class="soft-badge">Public Access</span>
+            <span class="soft-badge">Ticket Based</span>
+            <span class="soft-badge">Instant Result</span>
+          </div>
+        </div>
+
+        <form id="trackStatusForm" class="complaint-form">
+          <label>
+            Complaint ID
+            <input type="text" id="trackComplaintId" placeholder="Enter complaint ID e.g. SCMS-2101" required />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Track Status</button>
+          </div>
+          <p id="trackMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <div id="trackResultCard" class="track-result-card hidden">
+          <div class="updates-head">
+            <div>
+              <p class="section-kicker">Complaint Result</p>
+              <h2 id="resultTitle">Complaint Details</h2>
+            </div>
+            <span id="resultStatus" class="status-badge status-open">Open</span>
+          </div>
+
+          <div class="track-grid">
+            <article class="contact-card">
+              <span class="announcement-tag">Resident</span>
+              <h3 id="resultResident">-</h3>
+              <p id="resultFlat">-</p>
+            </article>
+            <article class="contact-card">
+              <span class="announcement-tag">Category</span>
+              <h3 id="resultCategory">-</h3>
+              <p id="resultPriority">-</p>
+            </article>
+            <article class="contact-card">
+              <span class="announcement-tag">Assigned Department</span>
+              <h3 id="resultDepartment">-</h3>
+              <p id="resultDate">-</p>
+            </article>
+          </div>
+
+          <div class="announcement-card track-description">
+            <span class="announcement-tag">Description</span>
+            <h3 id="resultSubject">-</h3>
+            <p id="resultDescription">-</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="glass-panel side-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="section-kicker">How It Works</p>
+            <h2>Status Tracking Guide</h2>
+          </div>
+        </div>
+
+        <div class="info-stack">
+          <article class="info-card">
+            <span class="feature-tag">Step 1</span>
+            <h3>Use Correct Ticket ID</h3>
+            <p>Enter the same complaint ID that was shown after successful complaint registration.</p>
+          </article>
+
+          <article class="info-card">
+            <span class="feature-tag">Step 2</span>
+            <h3>View Live Status</h3>
+            <p>See whether the complaint is Open, In Progress, or Resolved along with the assigned department.</p>
+          </article>
+
+          <article class="info-card">
+            <span class="feature-tag">Step 3</span>
+            <h3>Need More Help?</h3>
+            <p>If the complaint ID is not found, contact the society helpdesk or submit the complaint again carefully.</p>
+          </article>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="theme.js"></script>
+  <script src="pwa.js"></script>
+  <script src="track-status.js"></script>
+</body>
+</html>

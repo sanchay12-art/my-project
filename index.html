@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Society Complaint Management System</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-home">
+  <div class="app-shell">
+    <main class="campus-home">
+      <section class="hero-panel campus-shell">
+        <header class="campus-topbar">
+          <a class="campus-brand" href="index.html">
+            <span class="campus-brand-logo">SC</span>
+            <div>
+              <strong>SOCITY CARE</strong>
+              <span>Smart Complaint and Resident Support Portal</span>
+            </div>
+          </a>
+
+          <nav class="campus-nav">
+            <a class="active" href="index.html">Home</a>
+            <a href="complaint.html">File Complaint</a>
+            <a href="track-status.html">Track Status</a>
+            <a href="#announcements">Announcements</a>
+            <a href="#contact">Contact Us</a>
+          </nav>
+
+          <div class="nav-actions">
+            <button class="ghost-link compact-btn" id="themeToggle" type="button">Dark Mode</button>
+            <a class="admin-button compact-btn" href="admin.html">Admin Login</a>
+            <a class="primary-button compact-btn" href="complaint.html">Login / Register</a>
+          </div>
+        </header>
+
+        <section class="campus-hero-grid">
+          <div class="campus-left">
+            <div class="campus-copy">
+              <p class="eyebrow">Smart Society Support</p>
+              <h1>Report Society Issues and Track Every Update with Ease.</h1>
+              <p class="lead">
+                A quick, efficient, and transparent digital platform for all society
+                residents to register complaints, track progress, and stay updated in real time.
+              </p>
+
+              <div class="hero-cta-row">
+                <a class="primary-button" href="complaint.html">File Your Complaint</a>
+                <a class="ghost-link tinted-link" href="track-status.html">Track Complaint Status</a>
+              </div>
+            </div>
+
+            <div class="campus-people-panel">
+              <div class="people-visual">
+                <div class="people-badge">Resident Support</div>
+              </div>
+
+              <div class="campus-footer-strip">
+                <div>
+                  <p class="footer-title">Quick Links</p>
+                  <span>Home</span>
+                  <span>About</span>
+                  <span>Contact</span>
+                </div>
+                <div>
+                  <p class="footer-title">Support</p>
+                  <span>Maintenance Team</span>
+                  <span>Facility Team</span>
+                  <span>Security Desk</span>
+                </div>
+                <div>
+                  <p class="footer-title">Contact</p>
+                  <span>+91 98765 43210</span>
+                  <span>support@societycare.in</span>
+                  <span>www.societycare.in</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="campus-right">
+            <div class="campus-scene">
+              <div class="scene-overlay scene-a"></div>
+              <div class="scene-overlay scene-b"></div>
+              <div class="scene-overlay scene-c"></div>
+              <div class="scene-card">
+                <span class="live-pill"><span class="live-dot"></span>Society Live</span>
+                <strong>Reliable, transparent and fast support for every resident.</strong>
+              </div>
+            </div>
+
+            <div class="service-feature-row">
+              <article class="service-feature-card">
+                <div class="service-icon">1</div>
+                <h3>Easy Registration</h3>
+                <p>Simple registration flow with resident, flat number and complaint details.</p>
+              </article>
+              <article class="service-feature-card">
+                <div class="service-icon">2</div>
+                <h3>Fast Filing</h3>
+                <p>Quick form-based filing for maintenance, security, water and cleanliness issues.</p>
+              </article>
+              <article class="service-feature-card">
+                <div class="service-icon">3</div>
+                <h3>Quick Action</h3>
+                <p>Track updates and get fast status visibility from the admin panel.</p>
+              </article>
+            </div>
+
+            <div class="updates-board">
+              <div class="updates-head">
+                <h2>Latest Complaints and Updates</h2>
+                <span class="soft-badge">Real-Time Overview</span>
+              </div>
+
+              <div class="updates-table">
+                <div class="updates-row updates-header">
+                  <span>Complaint ID</span>
+                  <span>Category</span>
+                  <span>Subject</span>
+                  <span>Status</span>
+                </div>
+                <div class="updates-row">
+                  <span>SCY-250201</span>
+                  <span>Water Supply</span>
+                  <span>Low water pressure in Tower B residential block</span>
+                  <span class="status-badge status-resolved">Resolved</span>
+                </div>
+                <div class="updates-row">
+                  <span>SCY-250202</span>
+                  <span>Security</span>
+                  <span>Main gate visitor entry delay during evening hours</span>
+                  <span class="status-badge status-progress">Pending</span>
+                </div>
+                <div class="updates-row">
+                  <span>SCY-250203</span>
+                  <span>Maintenance</span>
+                  <span>Lift indicator fault in Tower A society block</span>
+                  <span class="status-badge status-open">Open</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="glass-panel home-info-section" id="announcements">
+        <div class="updates-head">
+          <div>
+            <p class="section-kicker">Announcements</p>
+            <h2>Society Notices and Important Updates</h2>
+          </div>
+          <span class="soft-badge">Updated Today</span>
+        </div>
+
+        <div class="announcement-grid">
+          <article class="announcement-card">
+            <span class="announcement-tag">Maintenance Notice</span>
+            <h3>Water Tank Cleaning Scheduled</h3>
+            <p>Water supply may remain slow between 10:00 AM and 1:00 PM on Sunday due to routine tank cleaning.</p>
+          </article>
+          <article class="announcement-card">
+            <span class="announcement-tag">Security Update</span>
+            <h3>Visitor Entry Rules Revised</h3>
+            <p>All visitor entries must be pre-approved after 8:00 PM for improved resident security and smoother gate flow.</p>
+          </article>
+          <article class="announcement-card">
+            <span class="announcement-tag">Facility Alert</span>
+            <h3>Lift Inspection This Week</h3>
+            <p>Tower A and Tower B lifts will undergo safety inspection this week. Temporary delays may occur.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="glass-panel home-info-section" id="contact">
+        <div class="updates-head">
+          <div>
+            <p class="section-kicker">Contact Us</p>
+            <h2>Society Helpdesk Contact Information</h2>
+          </div>
+          <div class="nav-actions">
+            <a class="ghost-link compact-btn" href="admin.html">Admin Login</a>
+            <a class="ghost-link compact-btn" href="complaint.html">Raise Complaint</a>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <span class="announcement-tag">Primary Contact</span>
+            <h3>Sanchay Dutt</h3>
+            <p>Main society coordinator or complaint desk in-charge.</p>
+          </article>
+          <article class="contact-card">
+            <span class="announcement-tag">Phone Number</span>
+            <h3>+91 9808207071</h3>
+            <p>Available for urgent society complaint coordination.</p>
+          </article>
+          <article class="contact-card">
+            <span class="announcement-tag">Email Address</span>
+            <h3>support@societycare.in</h3>
+            <p>For complaint follow-up, updates, and resident communication.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="glass-panel home-info-section admin-access-section">
+        <div class="updates-head">
+          <div>
+            <p class="section-kicker">Admin Access</p>
+            <h2>Society Admin Control Panel</h2>
+          </div>
+          <span class="soft-badge">Secure Login Required</span>
+        </div>
+
+        <div class="admin-access-card">
+          <div>
+            <h3>Manage complaints, update status and monitor resident issues from the admin dashboard.</h3>
+            <p>Authorized admin users can log in to view all complaints, apply filters, update issue status and manage complaint records in one place.</p>
+          </div>
+          <div class="nav-actions">
+            <a class="admin-button compact-btn" href="admin.html">Open Admin Login</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+<script src="theme.js"></script>
+<script src="pwa.js"></script>
+</html>

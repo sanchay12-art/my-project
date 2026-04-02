@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>Society Admin Dashboard</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-admin">
+  <div class="app-shell">
+    <section class="glass-panel admin-auth-panel" id="adminAuthPanel">
+      <div class="admin-auth-card">
+        <p class="eyebrow">Admin Authentication</p>
+        <h1 class="subpage-title">Admin Login Required</h1>
+        <p class="section-copy">Enter admin ID and password to access all complaints, dashboard insights, and complaint actions.</p>
+
+        <form id="adminLoginForm" class="complaint-form admin-login-form">
+          <label>
+            Admin ID
+            <input type="text" id="adminId" placeholder="Enter admin ID" required />
+          </label>
+          <label>
+            Password
+            <input type="password" id="adminPassword" placeholder="Enter password" required />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary-button">Login to Admin Panel</button>
+          </div>
+          <p id="adminLoginMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <div class="admin-auth-hint">
+          <span class="soft-badge">Default Admin ID: `admin`</span>
+          <span class="soft-badge">Default Password: `admin123`</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="adminProtectedContent" class="hidden">
+    <header class="subpage-top">
+      <div>
+        <p class="eyebrow">Society Admin Control Room</p>
+        <h1 class="subpage-title">Complaint Dashboard & Management</h1>
+      </div>
+      <div class="nav-actions">
+        <a class="ghost-link" href="index.html">Back Home</a>
+        <a class="ghost-link" href="complaint.html">Open Resident Form</a>
+        <button class="ghost-link" id="themeToggle" type="button">Dark Mode</button>
+        <button class="danger-button" id="adminLogoutBtn" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-layout">
+      <section class="glass-panel admin-summary">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2>Live Complaint Snapshot</h2>
+          </div>
+          <div class="button-row">
+            <button class="secondary-button" id="seedDataBtn" type="button">Load Sample Data</button>
+            <button class="danger-button" id="resetDataBtn" type="button">Reset All Data</button>
+          </div>
+        </div>
+
+        <div class="admin-ribbon">
+          <div>
+            <span class="live-pill"><span class="live-dot"></span>Live Complaint Board</span>
+            <p class="section-copy">Resident page se aane wali new complaints yahin par appear hongi aur admin team yahin se action le sakti hai.</p>
+          </div>
+          <div class="badge-stack">
+            <span class="soft-badge">Searchable</span>
+            <span class="soft-badge">Filter Ready</span>
+            <span class="soft-badge">Status Actions</span>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <div class="insight-strip">
+          <div>
+            <span>Urgent Attention</span>
+            <strong id="urgentCount">0 urgent complaints need action</strong>
+          </div>
+          <div>
+            <span>Top Resolver</span>
+            <strong id="topDepartment">No department data yet</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-panel">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Manage Records</p>
+            <h2>Complaint Registry</h2>
+          </div>
+          <p class="section-copy">Search, filter aur quick actions se complaint handling fast rakhiye.</p>
+        </div>
+
+        <div class="toolbar">
+          <label>
+            Search
+            <input type="search" id="searchInput" placeholder="Ticket, resident, flat, title..." />
+          </label>
+          <label>
+            Status
+            <select id="statusFilter">
+              <option value="All">All</option>
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </label>
+          <label>
+            Category
+            <select id="categoryFilter">
+              <option value="All">All</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Water Supply">Water Supply</option>
+              <option value="Electricity">Electricity</option>
+              <option value="Security">Security</option>
+              <option value="Cleanliness">Cleanliness</option>
+              <option value="Parking">Parking</option>
+              <option value="Lift">Lift</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>
+            Sort By
+            <select id="sortBy">
+              <option value="latest">Latest First</option>
+              <option value="priority">Priority</option>
+              <option value="resident">Resident Name</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ticket</th>
+                <th>Resident</th>
+                <th>Issue</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="complaintTableBody"></tbody>
+          </table>
+        </div>
+        <p id="emptyState" class="empty-state">No complaints available right now.</p>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="theme.js"></script>
+  <script src="pwa.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
