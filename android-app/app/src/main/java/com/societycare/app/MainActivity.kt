@@ -1,20 +1,32 @@
 package com.societycare.app
 
 import android.annotation.SuppressLint
-import android.net.Uri
+import android.graphics.Color
 import android.os.Bundle
-import android.webkit.WebResourceRequest
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import androidx.webkit.WebViewAssetLoader
+import androidx.webkit.WebViewClientCompat
+import androidx.webkit.WebViewFeature
+import androidx.webkit.WebSettingsCompat
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
+    private lateinit var assetLoader: WebViewAssetLoader
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        assetLoader = WebViewAssetLoader.Builder()
+            .addPathHandler(
+                "/assets/",
+                WebViewAssetLoader.AssetsPathHandler(this)
+            )
+            .build()
 
         webView = WebView(this)
         setContentView(webView)
@@ -23,22 +35,35 @@ class MainActivity : AppCompatActivity() {
         webView.settings.domStorageEnabled = true
         webView.settings.allowFileAccess = true
         webView.settings.allowContentAccess = true
+        webView.settings.loadsImagesAutomatically = true
+        webView.settings.useWideViewPort = true
+        webView.settings.loadWithOverviewMode = true
+        webView.settings.allowFileAccessFromFileURLs = true
+        webView.settings.allowUniversalAccessFromFileURLs = true
         webView.settings.setSupportZoom(false)
         webView.settings.builtInZoomControls = false
         webView.settings.displayZoomControls = false
+        webView.setBackgroundColor(Color.TRANSPARENT)
+        webView.webChromeClient = WebChromeClient()
 
-        webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                val url = request?.url ?: return false
-                return handleInternalNavigation(url)
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+            WebSettingsCompat.setForceDark(
+                webView.settings,
+                WebSettingsCompat.FORCE_DARK_OFF
+            )
+        }
+
+        webView.webViewClient = object : WebViewClientCompat() {
+            override fun shouldInterceptRequest(
+                view: WebView,
+                request: android.webkit.WebResourceRequest
+            ): android.webkit.WebResourceResponse? {
+                return assetLoader.shouldInterceptRequest(request.url)
             }
         }
 
         if (savedInstanceState == null) {
-            webView.loadUrl("file:///android_asset/web/index.html")
+            webView.loadUrl("https://appassets.androidplatform.net/assets/web/index.html")
         } else {
             webView.restoreState(savedInstanceState)
         }
@@ -54,15 +79,6 @@ class MainActivity : AppCompatActivity() {
             webView.goBack()
         } else {
             super.onBackPressed()
-        }
-    }
-
-    private fun handleInternalNavigation(uri: Uri): Boolean {
-        val url = uri.toString()
-        return if (url.startsWith("file:///android_asset/")) {
-            false
-        } else {
-            false
         }
     }
 }
