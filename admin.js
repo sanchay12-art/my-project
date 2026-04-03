@@ -25,7 +25,7 @@ const adminEls = {
   topDepartment: document.getElementById("topDepartment")
 };
 
-let complaints = loadComplaints();
+let complaints = [];
 
 function isAdminAuthenticated() {
   return localStorage.getItem(ADMIN_SESSION_KEY) === "authenticated";
@@ -188,37 +188,45 @@ function renderComplaints() {
   buildStats(complaints);
 }
 
-function updateComplaintStatus(id, status) {
-  complaints = complaints.map((item) => item.id === id ? { ...item, status } : item);
-  saveComplaints(complaints);
+async function updateComplaintStatus(id, status) {
+  await updateComplaint(id, { status });
+  complaints = await loadComplaints();
   renderComplaints();
 }
 
-function deleteComplaint(id) {
-  complaints = complaints.filter((item) => item.id !== id);
-  saveComplaints(complaints);
+async function deleteComplaint(id) {
+  await removeComplaint(id);
+  complaints = await loadComplaints();
   renderComplaints();
 }
 
-function handleTableAction(event) {
+async function handleTableAction(event) {
   const button = event.target.closest("button[data-action]");
   if (!button) return;
 
   const { action, id } = button.dataset;
-  if (action === "progress") updateComplaintStatus(id, "In Progress");
-  if (action === "resolve") updateComplaintStatus(id, "Resolved");
-  if (action === "delete") deleteComplaint(id);
+  if (action === "progress") await updateComplaintStatus(id, "In Progress");
+  if (action === "resolve") await updateComplaintStatus(id, "Resolved");
+  if (action === "delete") await deleteComplaint(id);
 }
 
-function resetData() {
-  complaints = [];
-  saveComplaints(complaints);
+async function resetData() {
+  for (const complaint of complaints) {
+    await removeComplaint(complaint.id);
+  }
+  complaints = await loadComplaints();
   renderComplaints();
 }
 
-function seedData() {
-  complaints = [...sampleComplaints];
-  saveComplaints(complaints);
+async function seedData() {
+  const current = await loadComplaints();
+  for (const complaint of current) {
+    await removeComplaint(complaint.id);
+  }
+  for (const complaint of sampleComplaints) {
+    await createComplaint(complaint);
+  }
+  complaints = await loadComplaints();
   renderComplaints();
 }
 
@@ -232,7 +240,12 @@ adminEls.sortBy.addEventListener("change", renderComplaints);
 adminEls.resetDataBtn.addEventListener("click", resetData);
 adminEls.seedDataBtn.addEventListener("click", seedData);
 
-toggleAdminView();
-if (isAdminAuthenticated()) {
-  renderComplaints();
+async function initAdminPage() {
+  complaints = await loadComplaints();
+  toggleAdminView();
+  if (isAdminAuthenticated()) {
+    renderComplaints();
+  }
 }
+
+initAdminPage();

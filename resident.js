@@ -12,10 +12,9 @@ function showMessage(message, type = "success") {
   formMessage.style.color = type === "success" ? "var(--success)" : "var(--danger)";
 }
 
-function registerComplaint(event) {
+async function registerComplaint(event) {
   event.preventDefault();
 
-  const complaints = loadComplaints();
   const complaint = {
     id: generateTicketId(),
     residentName: document.getElementById("residentName").value.trim(),
@@ -33,8 +32,7 @@ function registerComplaint(event) {
     createdAt: new Date().toISOString()
   };
 
-  complaints.unshift(complaint);
-  saveComplaints(complaints);
+  await createComplaint(complaint);
   complaintForm.reset();
   setTodayDate();
   showMessage(`Complaint registered successfully. Ticket ID: ${complaint.id}`);

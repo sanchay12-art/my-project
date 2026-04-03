@@ -1,5 +1,3 @@
-const STORAGE_KEY = "society-complaints-v2";
-
 const sampleComplaints = [
   {
     id: "SCMS-2101",
@@ -59,23 +57,24 @@ const priorityWeight = {
 };
 
 function loadComplaints() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleComplaints));
-    return [...sampleComplaints];
-  }
-
   try {
-    const parsed = JSON.parse(saved);
-    return Array.isArray(parsed) ? parsed : [...sampleComplaints];
+    return fetch("/api/complaints")
+      .then((response) => response.json())
+      .then((data) => Array.isArray(data) ? data : [...sampleComplaints])
+      .catch(() => [...sampleComplaints]);
   } catch (error) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleComplaints));
-    return [...sampleComplaints];
+    return Promise.resolve([...sampleComplaints]);
   }
 }
 
 function saveComplaints(complaints) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(complaints));
+  return fetch("/api/complaints/bulk", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ complaints })
+  });
 }
 
 function generateTicketId() {
@@ -100,4 +99,30 @@ function getDepartmentPerformance(complaints) {
   }, {});
 
   return Object.entries(departmentMap).sort((a, b) => b[1] - a[1])[0] || null;
+}
+
+function createComplaint(complaint) {
+  return fetch("/api/complaints", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(complaint)
+  }).then((response) => response.json());
+}
+
+function updateComplaint(id, updates) {
+  return fetch(`/api/complaints/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updates)
+  }).then((response) => response.json());
+}
+
+function removeComplaint(id) {
+  return fetch(`/api/complaints/${id}`, {
+    method: "DELETE"
+  });
 }

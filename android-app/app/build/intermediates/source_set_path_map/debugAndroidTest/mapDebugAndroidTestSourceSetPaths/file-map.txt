@@ -1,4 +1,4 @@
-com.societycare.app.test.app-androidTest-0 C:\Users\sanch\New folder\android-app\app\build\generated\res\resValues\androidTest\debug
-com.societycare.app.test.app-mergeDebugAndroidTestResources-1 C:\Users\sanch\New folder\android-app\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.societycare.app.test.app-mergeDebugAndroidTestResources-2 C:\Users\sanch\New folder\android-app\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.societycare.app.test.app-debugAndroidTest-3 C:\Users\sanch\New folder\android-app\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+com.societycare.app.test.app-androidTest-0 C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\build\generated\res\resValues\androidTest\debug
+com.societycare.app.test.app-mergeDebugAndroidTestResources-1 C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.societycare.app.test.app-mergeDebugAndroidTestResources-2 C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.societycare.app.test.app-debugAndroidTest-3 C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

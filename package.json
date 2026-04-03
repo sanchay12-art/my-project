@@ -1,0 +1,14 @@
+{
+  "name": "society-complaint-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Society complaint management system with Node.js backend for Render deployment.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

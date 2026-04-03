@@ -35,11 +35,11 @@ function renderTrackResult(complaint) {
   trackEls.resultDescription.textContent = complaint.description;
 }
 
-function handleTrackSubmit(event) {
+async function handleTrackSubmit(event) {
   event.preventDefault();
 
   const enteredId = trackEls.complaintId.value.trim().toUpperCase();
-  const complaints = loadComplaints();
+  const complaints = await loadComplaints();
   const foundComplaint = complaints.find((item) => item.id.toUpperCase() === enteredId);
 
   if (!foundComplaint) {

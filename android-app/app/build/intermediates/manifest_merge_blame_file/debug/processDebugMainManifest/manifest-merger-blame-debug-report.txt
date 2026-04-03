@@ -9,8 +9,8 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:4:5-67
-11-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:4:22-64
+11-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:4:22-64
 12
 13    <permission
 13-->[androidx.core:core:1.13.1] C:\Users\sanch\.gradle\caches\9.0-milestone-1\transforms\c1a85a2a604c09d27bbecf8ed496533f\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
@@ -24,36 +24,36 @@
 17-->[androidx.core:core:1.13.1] C:\Users\sanch\.gradle\caches\9.0-milestone-1\transforms\c1a85a2a604c09d27bbecf8ed496533f\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 18
 19    <application
-19-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:6:5-21:19
+19-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:6:5-21:19
 20        android:allowBackup="true"
-20-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:7:9-35
+20-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:7:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 21-->[androidx.core:core:1.13.1] C:\Users\sanch\.gradle\caches\9.0-milestone-1\transforms\c1a85a2a604c09d27bbecf8ed496533f\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 22        android:debuggable="true"
 23        android:extractNativeLibs="false"
 24        android:label="Society Care"
-24-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:8:9-37
+24-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:8:9-37
 25        android:supportsRtl="true"
-25-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:9:9-35
+25-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:9:9-35
 26        android:theme="@style/Theme.SocietyCare" >
-26-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:10:9-49
+26-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:10:9-49
 27        <activity
-27-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:11:9-20:20
+27-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:11:9-20:20
 28            android:name="com.societycare.app.MainActivity"
-28-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:12:13-41
+28-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:12:13-41
 29            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout|uiMode"
-29-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:14:13-113
+29-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:14:13-113
 30            android:exported="true" >
-30-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:13:13-36
+30-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:13:13-36
 31            <intent-filter>
-31-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:15:13-19:29
+31-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:15:13-19:29
 32                <action android:name="android.intent.action.MAIN" />
-32-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:16:17-69
-32-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:16:25-66
+32-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:16:17-69
+32-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:16:25-66
 33
 34                <category android:name="android.intent.category.LAUNCHER" />
-34-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:18:17-77
-34-->C:\Users\sanch\New folder\android-app\app\src\main\AndroidManifest.xml:18:27-74
+34-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:18:17-77
+34-->C:\Users\sanch\OneDrive\Desktop\New folder\android-app\app\src\main\AndroidManifest.xml:18:27-74
 35            </intent-filter>
 36        </activity>
 37
